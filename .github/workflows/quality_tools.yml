@@ -1,0 +1,24 @@
+name: Quality of code
+on: [push, pull_request]
+
+jobs:
+  Php-cs-fixer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Php Cs Fixer
+        run: |
+          curl -L https://cs.symfony.com/download/php-cs-fixer-v2.phar -o php-cs-fixer 
+          sudo chmod a+x php-cs-fixer
+          sudo mv php-cs-fixer /usr/local/bin/php-cs-fixer
+      - name : Run Php Cs Fixer
+        run: php-cs-fixer fix --dry-run src
+
+  security-checker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Update package
+      run: composer update
+    - name: Run Security Checker
+      run: php bin/security-checker.phar security:check ./composer.lock
