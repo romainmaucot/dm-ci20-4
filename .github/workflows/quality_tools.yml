@@ -24,11 +24,10 @@ jobs:
       run: php bin/security-checker.phar security:check ./composer.lock
 
   Hadolint:
-    name: Test Dockerfile
     runs-on: ubuntu-latest
     steps:
-        uses: actions/checkout@v2
-      - name: Install Docker
-        run: curl -sSL https://get.docker.com/ | sh
-      - name: Install hadolint
-        run: docker run --rm -i hadolint/hadolint < Dockerfile
+    - uses: actions/checkout@v2
+    - name: Install Docker
+      run: curl -sSL https://get.docker.com/ | sh
+    - name: Install hadolint
+      run: docker run --rm -i hadolint/hadolint < Dockerfile
