@@ -51,13 +51,11 @@ Copy only `.github`  directory for :
 ## :beers: Buid project
 
 ```
-
 git clone the project
 
 cd project/
 
 make install
-
 ```
 
  
@@ -65,9 +63,7 @@ make install
 Start server
 
 ```
-
 make start
-
 ```
 
  
@@ -79,33 +75,25 @@ make start
 * Functional test (Behat):
 
 ```
-
 make test_functional
-
 ```
 
 * Integration test :
 
 ```
-
 make test_integration
-
 ```
 
 * Unit test (PhpUnit):
 
 ```
-
 make test_unit
-
 ```
 
 * All test :
 
 ```
-
 make test
-
 ```
 
  
