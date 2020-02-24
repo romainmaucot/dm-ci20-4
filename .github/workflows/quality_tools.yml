@@ -2,7 +2,7 @@ name: Quality of code
 on: [push, pull_request]
 
 jobs:
-  Php-cs-fixer:
+  Php cs fixer:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,7 +14,7 @@ jobs:
       - name : Run Php Cs Fixer
         run: php-cs-fixer fix --dry-run src
 
-  security-checker:
+  Security checker:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -22,3 +22,13 @@ jobs:
       run: composer update
     - name: Run Security Checker
       run: php bin/security-checker.phar security:check ./composer.lock
+
+  Hadolint:
+    name: Test Dockerfile
+    runs-on: ubuntu-latest
+    steps:
+        uses: actions/checkout@v2
+      - name: Install Docker
+        run: curl -sSL https://get.docker.com/ | sh
+      - name: Install hadolint
+        run: docker run --rm -i hadolint/hadolint < Dockerfile
