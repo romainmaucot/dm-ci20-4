@@ -12,7 +12,7 @@ jobs:
           sudo chmod a+x php-cs-fixer
           sudo mv php-cs-fixer /usr/local/bin/php-cs-fixer
       - name : Run Php Cs Fixer
-        run: php-cs-fixer fix --rules=@Symfony --dry-run
+        run: php-cs-fixer fix . --rules=@Symfony
 
   Security-checker:
     runs-on: ubuntu-latest
