@@ -28,7 +28,5 @@ jobs:
     container: hadolint/hadolint:latest
     steps:
      - uses: actions/checkout@v2
-     - name:
-         Hadolint test on Dockerfile
-        run:
-          hadolint ./Dockerfile
+     - name: Hadolint test on Dockerfile
+       run: hadolint ./Dockerfile
