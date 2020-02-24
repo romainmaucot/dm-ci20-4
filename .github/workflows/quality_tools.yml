@@ -12,7 +12,7 @@ jobs:
           sudo chmod a+x php-cs-fixer
           sudo mv php-cs-fixer /usr/local/bin/php-cs-fixer
       - name : Run Php Cs Fixer
-        run: php-cs-fixer fix --dry-run src
+        run: php-cs-fixer fix --rules=@Symfony --dry-run src
 
   Security-checker:
     runs-on: ubuntu-latest
@@ -29,4 +29,4 @@ jobs:
     steps:
      - uses: actions/checkout@v2
      - name: Hadolint test on Dockerfile
-       run: hadolint ./Dockerfile
+       run: hadolint Dockerfile
