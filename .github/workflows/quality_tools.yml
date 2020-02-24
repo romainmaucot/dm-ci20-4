@@ -2,7 +2,7 @@ name: Quality of code
 on: [push, pull_request]
 
 jobs:
-  Php cs fixer:
+  Php-Cs-Fixer:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,7 +14,7 @@ jobs:
       - name : Run Php Cs Fixer
         run: php-cs-fixer fix --dry-run src
 
-  Security checker:
+  Security-checker:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
